@@ -51,28 +51,38 @@ document.addEventListener('keydown', function(event) {
     while (ul.firstChild) {
       ul.removeChild(ul.firstChild);
     } 
-  }                  
-});
-
-document.addEventListener('keydown', function(event) {
+  }   
   if (event.key === 's') {
     console.log('La touche S a été pressée');
     console.log(section.children);
     while (section.firstChild) {
       section.removeChild(section.firstChild);
     } 
-  }                  
+  }                     
 });
 
 
+
+const rotationAngles = {};
+const translationValues = {};
+
 document.addEventListener('keydown', function(event) {
-  if (event.key === 'd') {
-    console.log('La touche d a été pressée');
+  if (event.key === 'r') {
+    console.log('La touche r a été pressée');
     
     const children = section.children;
-    while (section.children) {
-      style.backgroundColor = "black";
+    for (let i = 0; i < children.length; i++) {
+      rotationAngles[i] = (rotationAngles[i] || 0) + 45;
+      children[i].style.transform = 'rotate(' + rotationAngles[i] + 'deg)';
     }
-    console.log(children);
-  }                  
+  } 
+  if (event.key === 't') {
+    const children = section.children;
+    for (let i = 0; i < children.length; i++) {
+      translationValues[i] = translationValues[i] || {x: 0, y: 0};
+      translationValues[i].x += 10;
+      translationValues[i].y += 10;
+      children[i].style.transform = 'translate(' + translationValues[i].x + 'px, ' + translationValues[i].y + 'px)';
+    }
+  }
 });
