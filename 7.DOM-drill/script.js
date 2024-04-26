@@ -33,9 +33,7 @@ function change(a) {
             li.textContent = item;
             li.addEventListener('click', alertTilte)
             ul.appendChild(li);
-        });
-        a.forEach(item => {
-            if (li.textContent = search) {
+            if (li.textContent === search) {
                 li.classList.add('important');
             } else {
                 li.classList.add('normal');
@@ -68,4 +66,17 @@ div.appendChild(select);
 select.appendChild(option1);
 select.appendChild(option2);
 
-console.log(body);
+select.addEventListener("change", function() {
+    let choice = select.value;
+    let normal = dorcument.querySelectorAll('normal');
+    if (choice = "important franchises") {
+        normal.forEach(element => {
+            element.style.visibility = 'hidden'; 
+            });
+        } else {
+        normal.forEach(element => {
+            element.style.visibility = 'visible';    
+        });
+    }
+           
+    });
