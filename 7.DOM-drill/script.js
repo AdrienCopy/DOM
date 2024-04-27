@@ -60,6 +60,7 @@ let option1 = document.createElement('option');
 option1.textContent = "important franchises";
 let option2 = document.createElement('option');
 option2.textContent = "normal franchises";
+option2.selected = true;
 
 body.insertBefore(div, body.firstChild);
 div.appendChild(select);
@@ -68,15 +69,14 @@ select.appendChild(option2);
 
 select.addEventListener("change", function() {
     let choice = select.value;
-    let normal = dorcument.querySelectorAll('normal');
-    if (choice = "important franchises") {
-        normal.forEach(element => {
-            element.style.visibility = 'hidden'; 
+    let normal = document.querySelectorAll('.normal');
+        if (choice === "important franchises") {
+            normal.forEach(element => {
+                element.style.visibility = 'hidden'; 
+                });
+            } else {
+            normal.forEach(element => {
+                element.style.visibility = 'visible';    
             });
-        } else {
-        normal.forEach(element => {
-            element.style.visibility = 'visible';    
-        });
-    }
-           
+        }   
     });
